@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+    <div class="row mt-3">
+        <div class="col">
+            <div class="card mt-4" style="width: 18rem;">
+                <ul class="list-group list-group-flush">
+                    {% for items in data %}
+                  <li class="list-group-item fs-3">{{items.title}} <p class="fs-6">{{items.description}}</p > </li>
+                  {% endfor %}
+                </ul>
+              </div>
+        </div>
+        <div class="col border">
+            <form action="/" method="post">
+                {% csrf_token %}
+                {{form}}
+                <button type="submit" class="btn btn-primary">Sumbit</button>
+            </form>
+        </div>
+    </div>
+    </div>
+{% endblock %}
